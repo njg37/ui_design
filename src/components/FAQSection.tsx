@@ -42,24 +42,8 @@ export default function FAQSection() {
   return (
     <section className="bg-[#FAFDF0] px-4 md:px-16 py-20 font-inter">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-start">
-        {/* Left: Image with Badge */}
-        <div className="relative">
-          <div className="w-full h-[460px] max-w-sm bg-gray-200 rounded-2xl shadow-md flex items-center justify-center text-gray-500 text-sm mx-auto">
-            Product Image
-          </div>
-          {/* Badge */}
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white px-4 py-2 rounded-full shadow text-sm flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs">
-              🕒
-            </div>
-            <span className="text-[#2C3E2F] font-medium">
-              24/7 We&#39;re Here to Help You
-            </span>
-          </div>
-        </div>
-
-        {/* Right: FAQs */}
-        <div className="space-y-6">
+        {/* Right: FAQs - now first in order on small screens */}
+        <div className="order-1 md:order-none space-y-6">
           <h2 className="faq-title text-2xl md:text-3xl font-semibold text-[#2C3E2F] mb-4">
             Answers to Your Skincare Questions, All in One Place.
           </h2>
@@ -88,6 +72,22 @@ export default function FAQSection() {
               )}
             </div>
           ))}
+        </div>
+
+        {/* Left: Image with Badge - now below on small screens */}
+        <div className="order-2 md:order-none relative">
+          <div className="w-full h-[460px] max-w-sm bg-gray-200 rounded-2xl shadow-md flex items-center justify-center text-gray-500 text-sm mx-auto">
+            Product Image
+          </div>
+          {/* Badge */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white px-4 py-2 rounded-full shadow text-sm flex items-center gap-2">
+            <div className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs">
+              🕒
+            </div>
+            <span className="text-[#2C3E2F] font-medium">
+              24/7 We&#39;re Here to Help You
+            </span>
+          </div>
         </div>
       </div>
     </section>

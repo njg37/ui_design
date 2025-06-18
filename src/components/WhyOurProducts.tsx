@@ -12,8 +12,8 @@ export default function WhyOurProducts() {
   return (
     <section className="bg-[#F4F8E8] px-4 md:px-16 py-20 font-inter">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-        {/* Left Content */}
-        <div className="space-y-8">
+        {/* Left Content (Text First on mobile/tablet) */}
+        <div className="order-1 md:order-none space-y-8">
           {/* Pill button */}
           <button className="flex items-center gap-2 px-4 py-1.5 bg-white rounded-full shadow text-sm text-[#2C3E2F] w-fit">
             <div className="w-2 h-2 bg-[#2C3E2F] rounded-full"></div>
@@ -63,8 +63,8 @@ export default function WhyOurProducts() {
           </div>
         </div>
 
-        {/* Right: Image + Badge */}
-        <div className="relative">
+        {/* Right Content (Image block goes below text on mobile) */}
+        <div className="order-2 md:order-none relative">
           {/* Image box */}
           <div className="w-full max-w-sm h-[500px] bg-gray-200 rounded-2xl shadow-md border-[3px] border-[#FEDD5B] mx-auto flex items-center justify-center text-gray-400">
             Model Image
