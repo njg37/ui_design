@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Plus, Minus } from "lucide-react";
+import { fadeInUp, staggerReveal } from "@/utils/gsapHelpers";
 
 const faqs = [
   {
@@ -29,6 +30,11 @@ const faqs = [
 export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  useEffect(() => {
+    fadeInUp(".faq-title");
+    staggerReveal(".faq-item");
+  }, []);
+
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -54,14 +60,14 @@ export default function FAQSection() {
 
         {/* Right: FAQs */}
         <div className="space-y-6">
-          <h2 className="text-2xl md:text-3xl font-semibold text-[#2C3E2F] mb-4">
+          <h2 className="faq-title text-2xl md:text-3xl font-semibold text-[#2C3E2F] mb-4">
             Answers to Your Skincare Questions, All in One Place.
           </h2>
 
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border border-gray-300 rounded-lg overflow-hidden transition-all duration-300 bg-white"
+              className="faq-item border border-gray-300 rounded-lg overflow-hidden transition-all duration-300 bg-white"
             >
               <button
                 onClick={() => toggleFAQ(index)}

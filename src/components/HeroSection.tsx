@@ -1,18 +1,42 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import { fadeInUp } from "@/utils/gsapHelpers";
+
 export default function HeroSection() {
+  const labelRef = useRef(null);
+  const headingRef = useRef(null);
+  const imageRef = useRef(null);
+  const captionRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  useEffect(() => {
+    fadeInUp(".hero-label");
+    fadeInUp(".hero-heading", 0.2);
+    fadeInUp(".hero-image", 0.4);
+    fadeInUp(".hero-caption", 0.6);
+    fadeInUp(".hero-button", 0.8);
+  }, []);
+
   return (
     <section className="relative bg-[#F4F8E8] py-16 px-4 md:px-16 overflow-hidden font-inter">
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Top Row */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
           {/* Left Label */}
-          <p className="max-w-xs text-sm text-[#2C3E2F]">
-            Transform your skincare routine with premium products that restore, protect, and enhance your natural glow every day.
+          <p
+            ref={labelRef}
+            className="hero-label max-w-xs text-sm text-[#2C3E2F]"
+          >
+            Transform your skincare routine with premium products that restore,
+            protect, and enhance your natural glow every day.
           </p>
 
           {/* Heading */}
-          <h1 className="text-4xl md:text-6xl font-extrabold text-[#2C3E2F] leading-tight text-right">
+          <h1
+            ref={headingRef}
+            className="hero-heading text-4xl md:text-6xl font-extrabold text-[#2C3E2F] leading-tight text-right"
+          >
             GLOW <br /> NATUR- <br /> ALLY
           </h1>
 
@@ -25,13 +49,19 @@ export default function HeroSection() {
         </div>
 
         {/* Center Image */}
-        <div className="flex justify-center relative mt-4 mb-12">
+        <div
+          ref={imageRef}
+          className="hero-image flex justify-center relative mt-4 mb-12"
+        >
           <div className="w-[280px] h-[380px] bg-gray-300 rounded-2xl shadow-md flex items-center justify-center text-sm text-gray-500">
             Model Image
           </div>
 
           {/* Bottom caption over image */}
-          <div className="absolute bottom-3 bg-white px-4 py-2 text-xs rounded-full shadow-md flex items-center gap-2">
+          <div
+            ref={captionRef}
+            className="hero-caption absolute bottom-3 bg-white px-4 py-2 text-xs rounded-full shadow-md flex items-center gap-2"
+          >
             <div className="w-6 h-6 bg-gray-200 rounded-full flex items-center justify-center text-[10px]">
               🧴
             </div>
@@ -43,7 +73,10 @@ export default function HeroSection() {
 
         {/* CTA Button */}
         <div className="flex justify-start">
-          <button className="bg-[#2C3E2F] text-white px-6 py-3 rounded-full hover:bg-[#1f2d24] transition text-sm font-medium">
+          <button
+            ref={buttonRef}
+            className="hero-button bg-[#2C3E2F] text-white px-6 py-3 rounded-full hover:bg-[#1f2d24] transition text-sm font-medium"
+          >
             Shop Now
           </button>
         </div>

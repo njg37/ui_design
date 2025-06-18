@@ -1,5 +1,8 @@
 "use client";
 
+import { useEffect } from "react";
+import { fadeInUp, staggerReveal } from "@/utils/gsapHelpers";
+
 export default function FeelBeautifulSection() {
   const filters = ["NEW ARRIVAL", "CLEANSING", "ACNE FIGHTER", "ANTI AGING"];
   const products = [
@@ -16,6 +19,12 @@ export default function FeelBeautifulSection() {
       price: "FROM $19.00",
     },
   ];
+
+  useEffect(() => {
+    fadeInUp(".feel-heading");
+    staggerReveal(".feel-filter");
+    staggerReveal(".feel-product");
+  }, []);
 
   return (
     <section className="bg-[#FAFDF0] px-4 md:px-16 py-20 font-inter">
@@ -34,7 +43,7 @@ export default function FeelBeautifulSection() {
         </div>
 
         {/* Repeating Heading */}
-        <h2 className="text-center text-xl md:text-2xl font-medium text-[#2C3E2F]">
+        <h2 className="feel-heading text-center text-xl md:text-2xl font-medium text-[#2C3E2F]">
           Feel Beautiful Inside and Out <br /> with Every Product.
         </h2>
 
@@ -43,7 +52,7 @@ export default function FeelBeautifulSection() {
           {filters.map((filter, i) => (
             <button
               key={i}
-              className="px-4 py-1.5 text-sm bg-white rounded-full shadow text-[#2C3E2F] hover:bg-gray-100 transition"
+              className="feel-filter px-4 py-1.5 text-sm bg-white rounded-full shadow text-[#2C3E2F] hover:bg-gray-100 transition"
             >
               {filter}
             </button>
@@ -55,7 +64,7 @@ export default function FeelBeautifulSection() {
           {products.map((product, i) => (
             <div
               key={i}
-              className="rounded-2xl bg-white shadow-md overflow-hidden flex flex-col"
+              className="feel-product rounded-2xl bg-white shadow-md overflow-hidden flex flex-col"
             >
               {/* Image Placeholder */}
               <div className="h-[320px] bg-gray-200 flex items-center justify-center text-gray-400 text-sm">

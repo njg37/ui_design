@@ -1,5 +1,8 @@
 "use client";
 
+import { useEffect } from "react";
+import { fadeInUp, staggerReveal } from "@/utils/gsapHelpers";
+
 export default function BestSellingProducts() {
   const products = [
     {
@@ -16,6 +19,11 @@ export default function BestSellingProducts() {
     },
   ];
 
+  useEffect(() => {
+    fadeInUp(".product-heading");
+    staggerReveal(".product-card");
+  }, []);
+
   return (
     <section className="bg-[#FAFDF0] px-4 md:px-16 py-20 font-inter">
       <div className="max-w-7xl mx-auto">
@@ -28,7 +36,7 @@ export default function BestSellingProducts() {
           </button>
 
           {/* Heading */}
-          <h2 className="text-center text-xl md:text-2xl font-semibold text-[#2C3E2F]">
+          <h2 className="product-heading text-center text-xl md:text-2xl font-semibold text-[#2C3E2F]">
             Skincare That Brings Out <br /> Your Natural Radiance
           </h2>
 
@@ -44,11 +52,11 @@ export default function BestSellingProducts() {
         </div>
 
         {/* Product Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="product-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {products.map((product, i) => (
             <div
               key={i}
-              className="rounded-2xl bg-white shadow-md overflow-hidden flex flex-col"
+              className="product-card rounded-2xl bg-white shadow-md overflow-hidden flex flex-col"
             >
               {/* Image Placeholder */}
               <div className="h-[320px] bg-gray-200 flex items-center justify-center text-gray-400 text-sm">

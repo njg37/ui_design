@@ -1,6 +1,14 @@
 "use client";
 
+import { useEffect } from "react";
+import { fadeInUp, staggerReveal } from "@/utils/gsapHelpers";
+
 export default function WhyOurProducts() {
+  useEffect(() => {
+    fadeInUp(".why-heading");
+    staggerReveal(".why-feature-item");
+  }, []);
+
   return (
     <section className="bg-[#F4F8E8] px-4 md:px-16 py-20 font-inter">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
@@ -13,8 +21,9 @@ export default function WhyOurProducts() {
           </button>
 
           {/* Heading */}
-          <h2 className="text-3xl md:text-4xl font-bold text-[#2C3E2F]">
-            YOUR SKIN DESERVES<br />
+          <h2 className="why-heading text-3xl md:text-4xl font-bold text-[#2C3E2F]">
+            YOUR SKIN DESERVES
+            <br />
             THE BEST CARE.
           </h2>
 
@@ -25,7 +34,7 @@ export default function WhyOurProducts() {
           </p>
 
           {/* Features List */}
-          <div className="space-y-6 text-[#2C3E2F] text-sm">
+          <div className="why-features space-y-6 text-[#2C3E2F] text-sm">
             {[
               {
                 number: "01",
@@ -43,7 +52,7 @@ export default function WhyOurProducts() {
                 desc: "Made with love and care. Just for you. Give your skin the tender loving care it deserves.",
               },
             ].map(({ number, title, desc }) => (
-              <div key={number}>
+              <div key={number} className="why-feature-item">
                 <h3 className="font-semibold text-lg mb-1">
                   <span className="text-gray-400 font-medium mr-2">{number}</span>
                   {title}
@@ -67,7 +76,9 @@ export default function WhyOurProducts() {
               ✅
             </div>
             <span className="text-[#2C3E2F] font-medium">
-              Best Skin Care Product<br />Award Winning
+              Best Skin Care Product
+              <br />
+              Award Winning
             </span>
           </div>
 
