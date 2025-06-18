@@ -1,59 +1,53 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ShoppingBag, Heart, User2 } from "lucide-react";
 
-const navLinks = ["Products", "About", "FAQ", "Contact"];
+const navLinks = ["All Products", "Serum", "Sunscreen", "Bundle"];
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm font-inter">
+    <header className="sticky top-0 z-50 bg-[#F4F8E8] font-inter">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 md:px-8 py-4">
-        {/* Logo */}
-        <div className="text-2xl font-bold text-gray-900">
-          {/* Placeholder Logo */}
-          SKIN<span className="text-green-600">CARE</span>
+        {/* Left: Logo */}
+        <div className="text-xl font-extrabold text-[#2C3E2F] tracking-wide">
+          SKINCARE
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-8">
+        {/* Center: Nav Links */}
+        <nav className="hidden md:flex gap-10">
           {navLinks.map((link) => (
             <a
               key={link}
-              href={`#${link.toLowerCase()}`}
-              className="text-gray-700 font-medium hover:text-green-600 transition"
+              href={`#${link.toLowerCase().replace(" ", "-")}`}
+              className="text-[#2C3E2F] text-sm font-medium hover:underline underline-offset-4 transition"
             >
               {link}
             </a>
           ))}
         </nav>
 
-        {/* Hamburger Button (Mobile) */}
-        <div className="md:hidden">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        {/* Right: Icons */}
+        <div className="flex items-center gap-4">
+          {/* Cart with label */}
+          <button className="flex items-center gap-2 text-[#2C3E2F] text-sm font-medium">
+            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm hover:bg-gray-100 transition">
+              <ShoppingBag size={16} />
+            </div>
+            Cart (1)
+          </button>
+
+          {/* Wishlist Icon */}
+          <button className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm hover:bg-gray-100 transition">
+            <Heart size={16} className="text-[#2C3E2F]" />
+          </button>
+
+          {/* User Icon */}
+          <button className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm hover:bg-gray-100 transition">
+            <User2 size={16} className="text-[#2C3E2F]" />
           </button>
         </div>
       </div>
-
-      {/* Mobile Navigation */}
-      {menuOpen && (
-        <div className="md:hidden px-4 pb-4">
-          <nav className="flex flex-col gap-3">
-            {navLinks.map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
-                className="text-gray-700 font-medium hover:text-green-600 transition"
-              >
-                {link}
-              </a>
-            ))}
-          </nav>
-        </div>
-      )}
     </header>
   );
 }

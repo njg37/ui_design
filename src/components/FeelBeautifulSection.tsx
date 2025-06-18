@@ -1,6 +1,7 @@
 "use client";
 
-export default function BestSellingProducts() {
+export default function FeelBeautifulSection() {
+  const filters = ["NEW ARRIVAL", "CLEANSING", "ACNE FIGHTER", "ANTI AGING"];
   const products = [
     {
       name: "ALYA SKIN CLEANSER.",
@@ -18,29 +19,35 @@ export default function BestSellingProducts() {
 
   return (
     <section className="bg-[#FAFDF0] px-4 md:px-16 py-20 font-inter">
-      <div className="max-w-7xl mx-auto">
-        {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-10">
-          {/* Pill */}
-          <button className="flex items-center gap-2 px-4 py-1.5 bg-white rounded-full shadow text-sm text-[#2C3E2F] w-fit">
-            <div className="w-2 h-2 bg-[#2C3E2F] rounded-full"></div>
-            Best Selling Products
-          </button>
-
-          {/* Heading */}
-          <h2 className="text-center text-xl md:text-2xl font-semibold text-[#2C3E2F]">
-            Skincare That Brings Out <br /> Your Natural Radiance
-          </h2>
-
-          {/* Arrows */}
-          <div className="flex gap-2">
-            <button className="w-9 h-9 bg-white rounded-full shadow flex items-center justify-center hover:bg-gray-100 transition">
-              ←
-            </button>
-            <button className="w-9 h-9 bg-[#2C3E2F] text-white rounded-full shadow flex items-center justify-center hover:bg-[#1f2d24] transition">
-              →
-            </button>
+      <div className="max-w-7xl mx-auto space-y-10">
+        {/* Top Banner */}
+        <div className="relative w-full h-[400px] bg-gray-300 rounded-2xl shadow flex items-center justify-center overflow-hidden">
+          {/* Background Placeholder */}
+          <div className="text-white text-xl md:text-3xl font-semibold text-center z-10">
+            Feel Beautiful Inside and Out <br /> with Every Product.
           </div>
+
+          {/* CTA Button */}
+          <button className="absolute bottom-6 bg-white text-sm px-5 py-2 rounded-full shadow hover:bg-gray-100 transition z-10">
+            Shop Now
+          </button>
+        </div>
+
+        {/* Repeating Heading */}
+        <h2 className="text-center text-xl md:text-2xl font-medium text-[#2C3E2F]">
+          Feel Beautiful Inside and Out <br /> with Every Product.
+        </h2>
+
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-3">
+          {filters.map((filter, i) => (
+            <button
+              key={i}
+              className="px-4 py-1.5 text-sm bg-white rounded-full shadow text-[#2C3E2F] hover:bg-gray-100 transition"
+            >
+              {filter}
+            </button>
+          ))}
         </div>
 
         {/* Product Cards */}

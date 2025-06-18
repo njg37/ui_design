@@ -4,6 +4,8 @@ import HeroSection from "@/components/HeroSection";
 import BestSellingProducts from "@/components/BestSellingProducts";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
+import WhyOurProducts from "@/components/WhyOurProducts";
+import FeelBeautifulSection from "@/components/FeelBeautifulSection";
 import "./globals.css"; // relative path from /app folder
 
 
@@ -14,7 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <LoadingScreen />
         <Header />
         <HeroSection />
+        <WhyOurProducts />
         <BestSellingProducts />
+        <FeelBeautifulSection />
          <FAQSection />
           <Footer />
         {children}

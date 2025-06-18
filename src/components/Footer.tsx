@@ -1,38 +1,40 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white px-4 md:px-16 py-10 font-inter">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Brand Info */}
-        <div>
-          <h3 className="text-2xl font-bold mb-2">SKIN<span className="text-green-400">CARE</span></h3>
-          <p className="text-gray-400 text-sm">
-            Your go-to natural skincare destination. Pure, cruelty-free, and made with love.
-          </p>
+    <footer className="relative bg-[#2C3E2F] text-white px-4 md:px-16 py-20 font-inter overflow-hidden">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 relative z-10">
+        {/* Left Column */}
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold">Join The Skincare Community Now.</h3>
+          <div className="flex gap-4 text-sm">
+            <a href="#" className="hover:text-[#FEDD5B] transition">Facebook</a>
+            <a href="#" className="hover:text-[#FEDD5B] transition">Instagram</a>
+            <a href="#" className="hover:text-[#FEDD5B] transition">YouTube</a>
+          </div>
         </div>
 
-        {/* Quick Links */}
-        <div>
-          <h4 className="text-lg font-semibold mb-3">Quick Links</h4>
-          <ul className="space-y-2 text-gray-300 text-sm">
-            <li><a href="#products" className="hover:text-white">Products</a></li>
-            <li><a href="#about" className="hover:text-white">About</a></li>
-            <li><a href="#faq" className="hover:text-white">FAQ</a></li>
-            <li><a href="#contact" className="hover:text-white">Contact</a></li>
-          </ul>
-        </div>
-
-        {/* Contact Info */}
-        <div>
-          <h4 className="text-lg font-semibold mb-3">Contact</h4>
-          <p className="text-gray-300 text-sm">Email: support@skincare.com</p>
-          <p className="text-gray-300 text-sm mt-1">Phone: +91 12345 67890</p>
-          <p className="text-gray-300 text-sm mt-1">Address: Kamalpur, Tripura</p>
+        {/* Right Column */}
+        <div className="space-y-4 md:text-right">
+          <h3 className="text-xl font-semibold">Get in Touch</h3>
+          <p className="text-sm text-[#FEDD5B]">contact.skincare.com</p>
         </div>
       </div>
 
-      <div className="text-center text-gray-500 text-sm mt-10 border-t border-gray-700 pt-6">
-        © {new Date().getFullYear()} SKINCARE. All rights reserved.
+      {/* Divider */}
+      <div className="my-10 border-t border-white/10"></div>
+
+      {/* Bottom Links */}
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-sm relative z-10">
+        <div className="flex gap-4">
+          <a href="#" className="hover:text-[#FEDD5B] transition">Terms of Service</a>
+          <a href="#" className="hover:text-[#FEDD5B] transition">Privacy Policy</a>
+          <a href="#" className="hover:text-[#FEDD5B] transition">Cookies Policy</a>
+        </div>
       </div>
+
+      {/* Background Text */}
+      <h1 className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[160px] md:text-[240px] font-black text-white/5 select-none pointer-events-none tracking-widest leading-none whitespace-nowrap">
+        SKINCARE
+      </h1>
     </footer>
   );
 }
